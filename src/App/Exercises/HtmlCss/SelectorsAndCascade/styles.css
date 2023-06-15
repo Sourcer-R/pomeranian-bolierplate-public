@@ -1,0 +1,22 @@
+div.mydiv-1, 
+mydiv-1 p{
+    background-color: blueviolet;
+    padding: 20px;
+}
+div.mydiv-3 span{
+color: red;
+}
+
+div.mydiv-3 > span{
+    color: yellowgreen;
+    }
+.mydiv-1 + p {
+text-align: center;
+    }
+ div ~ .mydiv-4{
+        color: blue;
+        }
+    .mydiv-5 + p{
+        background-color: black;
+        color: fuchsia;
+    }

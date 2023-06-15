@@ -1,0 +1,17 @@
+.A {
+    box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 13px 16px;
+gap: 10px;
+    width: 160px;
+height: 48px;
+
+background: #FFFFFF;
+/* GREY/300 */
+border: 1px solid #C8CBD1;
+border-radius: 5px;
+}
