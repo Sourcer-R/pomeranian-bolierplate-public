@@ -1,0 +1,34 @@
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.light-theme {
+    color: black;
+    background: white;
+}
+.dark-theme {
+    color: white;
+    background: black;
+}
+.wrapper {
+    transition: all 2s;
+}
+
+.animation {
+    animation-name: slide-in;
+    animation-duration: 2s;
+}
+
+@keyframes slide-in {0% {
+    position: absolute;
+    left: -100000px;
+}
+100% {
+    position: absolute;
+    left: 0px;
+}
+}
