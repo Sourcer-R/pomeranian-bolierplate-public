@@ -1,0 +1,41 @@
+.font-test-family {
+    font-family: Poppins;
+}
+
+
+.task-table {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 0;
+}
+
+.task-table td {
+    border: 0;
+    padding: 1em;
+}
+
+
+.task-table tr:nth-child(even) {
+    background-color: #FFD5DB;
+    
+}
+
+.task-table tr {
+
+    padding: 1em;
+    align-items: center;
+
+
+    width: 716px;
+    height: 84px;
+
+    background: #FFFFFF;
+    /* primary/primary-light */
+
+    /* Inside auto layout */
+
+}
+
+.task-table thead th {
+    padding: 1em;
+}

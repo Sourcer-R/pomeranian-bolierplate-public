@@ -1,11 +1,11 @@
-import { Exercise } from './index';
+import { Exercise2 } from './index';
 import React from 'react';
 
 export const blockRouterMetaData = {
-  path: 'google-fonts',
+  path: 'business-card',
   date: '16-06-2023',
-  linkLabel: 'Google Fonts',
+  linkLabel: 'Business Card',
   blockNo: 1,
-  element: <Exercise />,
+  element: <Exercise2 />,
   tags: ['attribute', 'text', 'css'],
 };

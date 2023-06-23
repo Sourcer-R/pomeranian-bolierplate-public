@@ -1,34 +1,67 @@
-.font-lato {
-    font-family: 'Lato', sans-serif;
-}
+.business-card {
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+  }
+  .business-card * {
+    margin: 0;
+  }
+  
+  .business-card a {
+    text-decoration: none;
+    color:black;
+  }
 
-.font-poppins {
-    font-family: 'Poppins', sans-serif;
-}
+  .business-card a:hover {
+background-color: fuchsia;
+cursor: pointer;
+animation-name: slidein;
+    animation-duration: 4s;
+  }
 
-.light-theme {
-    color: black;
-    background: white;
-}
-.dark-theme {
-    color: white;
-    background: black;
-}
-.wrapper {
-    transition: all 2s;
-}
+  .business-card section {
+    margin-bottom: .2em;
+  }
+  
+  .business-card section:nth-child(2) {
+    color: #FE3756;
+    
+  }
+.box {
 
-.animation {
-    animation-name: slide-in;
-    animation-duration: 2s;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
 }
+  .animation {
+    animation-name: slidein;
+    animation-duration: 4s;
+  }
 
-@keyframes slide-in {0% {
-    position: absolute;
-    left: -100000px;
-}
-100% {
-    position: absolute;
-    left: 0px;
-}
-}
+  .anim {
+    animation-name: fade;
+    animation-duration: 4s;
+  }
+  @keyframes slidein {
+    from {
+      transform: translateX(10%);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+  @keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 20;}
+  }
+ .lists { 
+  font-weight: lighter;
+  animation-name: fade;
+    animation-duration: 4s;
+ }

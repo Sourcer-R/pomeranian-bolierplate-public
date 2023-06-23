@@ -2,8 +2,12 @@ import { NavLink } from 'react-router-dom';
 
 import './styles/aside.css';
 
+import { FaqIcon } from '../Components/Icons/FaqIcon';
+
+
 export function AppAside() {
   return (
+
     <aside>
       <nav>
         <ul>
@@ -18,6 +22,12 @@ export function AppAside() {
           </li>
           <li>
             <NavLink to="blog">Blog</NavLink>
+          </li>
+          <li>
+            <NavLink className="aside-row" to="faq">
+              <FaqIcon className="menu-icon" />
+              FAQ
+            </NavLink>
           </li>
         </ul>
       </nav>
