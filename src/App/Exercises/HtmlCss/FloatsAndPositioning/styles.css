@@ -1,0 +1,60 @@
+.wrapper {
+  font-family: 'Poppins';
+
+  line-height: 36px;
+}
+
+.paragraf-2 {
+  width: 833px;
+  height: 36px;
+  margin: 2em;
+
+  font-style: normal;
+  color: #222222;
+}
+
+.container-grey {
+  display: flex;
+  align-items: center;
+
+  width: 984px;
+
+  background: #ebebeb;
+
+  /* Inside auto layout */
+}
+
+.wolf {
+  float: left;
+  width: 402px;
+  height: 350;
+  margin: 15px 30px;
+  border-radius: 8px;
+}
+.container-picture {
+  background: #ffd5db;
+
+  width: 984px;
+  height: 279px;
+}
+
+.dark-grey-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4b5563;
+  color: #ffffff;
+  width: 9 84px;
+}
+
+.button-container {
+  text-align: center;
+  margin: 40px;
+}
+button {
+  width: 323px;
+  height: 84px;
+  background: #ffd5db;
+  border: 1px solid #fe3756;
+  border-radius: 19.6438px;
+}

@@ -1,0 +1,67 @@
+.business-card {
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+  }
+  .business-card * {
+    margin: 0;
+  }
+  
+  .business-card a {
+    text-decoration: none;
+    color:black;
+  }
+
+  .business-card a:hover {
+background-color: fuchsia;
+cursor: pointer;
+animation-name: slidein;
+    animation-duration: 4s;
+  }
+
+  .business-card section {
+    margin-bottom: .2em;
+  }
+  
+  .business-card section:nth-child(2) {
+    color: #FE3756;
+    
+  }
+.box {
+
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+  .animation {
+    animation-name: slidein;
+    animation-duration: 4s;
+  }
+
+  .anim {
+    animation-name: fade;
+    animation-duration: 4s;
+  }
+  @keyframes slidein {
+    from {
+      transform: translateX(10%);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+  @keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 20;}
+  }
+ .lists { 
+  font-weight: lighter;
+  animation-name: fade;
+    animation-duration: 4s;
+ }
