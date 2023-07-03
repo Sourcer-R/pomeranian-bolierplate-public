@@ -6,7 +6,7 @@ import { Block09MetaData } from './Block09/router-data';
 import { ReactRouterEventsMetaData } from './ReactRouterEvents/router-data';
 
 export const blockRouterMetaData = [
-  ReactRouterEventsMetaData,
+
   ReactRouterEventsMetaData,
   Block09MetaData,
   SelectorsAndCascadeMetaData,
