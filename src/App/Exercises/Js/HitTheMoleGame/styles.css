@@ -1,0 +1,24 @@
+div {
+  font-family: Poppins;
+}
+
+div p {
+  line-height: 34px;
+  text-align: left;
+  color: #222222;
+}
+
+button {
+  width: 163px;
+  line-height: 31px;
+  padding: 20px 36px;
+  margin: 5px;
+  border: 1px;
+  border-radius: 8px;
+
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+
+  background-color: #23213d;
+}
