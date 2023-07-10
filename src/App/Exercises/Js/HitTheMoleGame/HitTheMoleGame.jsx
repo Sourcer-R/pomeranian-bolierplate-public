@@ -5,95 +5,81 @@ import React, { useState, useEffect } from 'react';
 import { MoleGameBoard } from './MoleGameBoard';
 import { MoleGameSettings } from './MoleGameSettings';
 
-
-//const Summary = ({scoreCount}) => {
-  //return <h4> Your Score is: {scoreCount}</h4>}
-
-  const CountdownTimer = ({countdown}) => {
-    return <h4> Remaining time: {countdown} seconds</h4>
-  };
+const CountdownTimer = ({ countdown }) => {
+  return <h4> Remaining time: {countdown} seconds</h4>;
+};
 
 export function HitTheMoleGame() {
-  const defaultGameTime = 2 * 60 * 1000;
-  const moleSpeed = 1000;
-  const [gameTime, setGameTime] = useState(defaultGameTime); //2000 * 60 Zeit
-  const [moleCount, setMoleCount] = useState(1);
-  const [scoreCount, setScoreCount] = useState(0);
-  const [seconds, setSeconds] = useState(gameTime / 1000);
+  const DEFAULT_GAME_TIME = 2 * 60 * 1000;
+  const MOLE_SPEED = 1000;
+
   const [moleArray, setMoleArray] = useState(
     Array(10).fill({ isVisible: false, isWhacked: false })
   );
-const [countdown, setCountdown] = useState (seconds);
-const [gameStarted, setGameStarted] = useState (false);
-
-
-useEffect(() => {
-
-  if (!countdown) return;
-  let intervalId;
-
-  if (!intervalId) {
-    intervalId = setInterval(() => {
-      setCountdown((prevCountdown) => prevCountdown  - 1);
-    }, 1000);
-  }
-
-  return () => clearInterval(intervalId);
-}, [seconds, gameStarted]);
+  const [gameTime, setGameTime] = useState(DEFAULT_GAME_TIME); //2000 * 60 Zeit
+  const [moleCount, setMoleCount] = useState(1);
+  const [score, setScore] = useState(0);
+  const [countdown, setCountdown] = useState(gameTime / 1000);
+  const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
+    if (!countdown) return;
     let intervalId;
 
-    if (!intervalId) {
+    if (!intervalId && gameStarted) {
       intervalId = setInterval(() => {
-        setSeconds(seconds - 1);
+        setCountdown((prevCountdown) => prevCountdown - 1);
       }, 1000);
     }
 
     return () => clearInterval(intervalId);
-  }, [seconds]);
+  }, [gameStarted]);
 
   useEffect(() => {
     let intervalId;
 
-    if (!intervalId) {
+    if (!intervalId && gameStarted) {
       intervalId = setInterval(() => {
-       showRandomMole();
-      }, moleSpeed);
+        showRandomMole();
+      }, MOLE_SPEED);
     }
-
-    console.log(seconds.toString().padStart(2, 0));
-
     return () => clearInterval(intervalId);
-  }, []);
+  }, [gameStarted]);
 
-  function hitTheMole(index) {
-    if (!moleArray[index].isWhacked) return;
-    moleArray[index].isWhacked = !moleArray[index].isWhacked;
-  }
+  useEffect(() => {
+    if (!gameStarted) setCountdown(gameTime / 1000);
+  }, [gameStarted, gameTime]);
 
-  function showRandomMole() {
-    function getRandomIntInclusive(min, max) {
-      //const random = Math.random(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
+  const hitTheMole = (index) => {
+    if (!moleArray[index].isVisible) return;
+    setMoleArray((prevValue) =>
+      prevValue.map((mole, i) => {
+        const newMole = { ...mole };
+        newMole.isVisible = index === i ? false : newMole.isVisible;
+        return newMole;
+      })
+    );
+    setScore((score) => score + 1);
+  };
 
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
+  const showRandomMole = () => {
+    const getRandomIntInclusive = (min, max) =>
+      Math.floor(
+        Math.random() * (Math.floor(max) - Math.ceil(min + 1)) + Math.ceil(min)
+      );
 
     const random = getRandomIntInclusive(0, moleArray.length - 1);
 
-    console.log (random)
     setMoleArray((previousMoleArray) =>
       previousMoleArray.map((mole, index) => {
-        const updatedMole = {...mole}
+        const updatedMole = { ...mole };
         updatedMole.isVisible = index === random;
 
-        
         return updatedMole;
       })
     );
-  }
+  };
+
   return (
     <>
       <MoleGameSettings
@@ -101,24 +87,20 @@ useEffect(() => {
         moleCount={moleCount}
         setGameTime={setGameTime}
         setMoleCount={setMoleCount}
-        startStopGame={() => setGameStarted (prev => !prev)}
-        gameStarted = {gameStarted}
+        startStopGame={() => setGameStarted((prev) => !prev)}
+        gameStarted={gameStarted}
       />
 
-{gameTime !== seconds*1000 && seconds !== 0 ? ( 
-      
-      <MoleGameBoard
-        moleArray={moleArray}
-        hitTheMole={hitTheMole}
-        scoreCount={scoreCount}
-      /> ): null}
+      {gameStarted ? (
+        <MoleGameBoard
+          moleArray={moleArray}
+          hitTheMole={hitTheMole}
+          score={score}
+        />
+      ) : null}
 
-<CountdownTimer countdown = {countdown} />
+      <CountdownTimer countdown={countdown} />
       <button onClick={() => showRandomMole()}> HIT ME NOW </button>
-
-      
-
-      
     </>
   );
 }
