@@ -49,3 +49,21 @@
   background: #fe3756;
   border-color: #fe3756;
 }
+
+.moleGame .board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 5px solid gray;
+  gap: 5px;
+  max-width: 800px;
+  height: 300px;
+}
+.moleGame .board .cell {
+  display: flex;
+  background-color: #ebebeb;
+
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 
-export const MoleGameSettings = ({gameTime, moleCount, setGameTime, setMoleCount}) => {
+export const MoleGameSettings = ({gameTime, moleCount, setGameTime, setMoleCount, startStopGame, gameStarted}) => {
    
   
   
@@ -58,7 +58,7 @@ export const MoleGameSettings = ({gameTime, moleCount, setGameTime, setMoleCount
               <div>
                 <h4>CONTROLS</h4>
   
-                <button>START</button>
+                <button onClick={startStopGame}> START </button>
               </div>
             </div>
           </div>
