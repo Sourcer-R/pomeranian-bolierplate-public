@@ -6,7 +6,7 @@ import { MoleGameBoard } from './MoleGameBoard';
 import { MoleGameSettings } from './MoleGameSettings';
 
 const CountdownTimer = ({ countdown }) => {
-  return <h4> Remaining time: {countdown} seconds</h4>;
+  return <h4> REMAINING TIME {countdown} seconds</h4>;
 };
 
 export function HitTheMoleGame() {
@@ -23,7 +23,6 @@ export function HitTheMoleGame() {
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
-    if (!countdown) return;
     let intervalId;
 
     if (!intervalId && gameStarted) {
@@ -31,9 +30,11 @@ export function HitTheMoleGame() {
         setCountdown((prevCountdown) => prevCountdown - 1);
       }, 1000);
     }
-
+    if (countdown === 0) {
+      setGameStarted(false);
+    }
     return () => clearInterval(intervalId);
-  }, [gameStarted]);
+  }, [gameStarted, countdown]);
 
   useEffect(() => {
     let intervalId;
@@ -82,14 +83,18 @@ export function HitTheMoleGame() {
 
   return (
     <>
-      <MoleGameSettings
-        gameTime={gameTime}
-        moleCount={moleCount}
-        setGameTime={setGameTime}
-        setMoleCount={setMoleCount}
-        startStopGame={() => setGameStarted((prev) => !prev)}
-        gameStarted={gameStarted}
-      />
+      {!gameStarted ? (
+        <MoleGameSettings
+          gameTime={gameTime}
+          moleCount={moleCount}
+          setGameTime={setGameTime}
+          setMoleCount={setMoleCount}
+          startStopGame={() => setGameStarted((prev) => !prev)}
+          gameStarted={gameStarted}
+        />
+      ) : null}
+
+      {gameStarted ? <CountdownTimer countdown={countdown} /> : null}
 
       {gameStarted ? (
         <MoleGameBoard
@@ -98,9 +103,6 @@ export function HitTheMoleGame() {
           score={score}
         />
       ) : null}
-
-      <CountdownTimer countdown={countdown} />
-      <button onClick={() => showRandomMole()}> HIT ME NOW </button>
     </>
   );
 }

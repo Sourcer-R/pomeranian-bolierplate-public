@@ -59,7 +59,7 @@ export const MoleGameSettings = ({
             <div>
               <h4>CONTROLS</h4>
 
-              <button onClick={() => startStopGame()}> START </button>
+              <button onClick={startStopGame}> START </button>
             </div>
           </div>
         </div>

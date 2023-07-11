@@ -4,7 +4,11 @@ import './styles.css';
 export const MoleGameBoard = ({ moleArray, hitTheMole, score }) => {
   return (
     <div className="moleGame">
-      <h4> CURRENT SCORE = {score}</h4>
+     
+      <div>
+      <h4> CURRENT SCORE  {score}</h4>
+      </div>
+      <h4>CONTROLS</h4>
 
       <div className="board">
         {moleArray.map((mole, index) => {
