@@ -100,6 +100,7 @@ export function HitTheMoleGame() {
         <MoleGameBoard
           moleArray={moleArray}
           hitTheMole={hitTheMole}
+          
           score={score}
         />
       ) : null}
