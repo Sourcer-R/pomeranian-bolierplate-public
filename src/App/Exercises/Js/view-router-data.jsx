@@ -5,6 +5,11 @@ import { blockRouterMetaData as blockRouterMetaDataJsVariables2 } from './Exerci
 import { blockRouterMetaData as blockRouterMetaDataJsFunction1 } from './Exercise-js-functions/router-data';
 import { blockRouterMetaData as blockRouterMetaDataHitTheMole } from './HitTheMoleGame/router-data';
 import { blockRouterMetaData as blockRouterMetaDataMemoGame } from './MemoGame/router-data';
+// import { blockRouterMetaData as blockRouterMetaDataJSLocalStorage } from './JSLocalStorage/router-data';
+import { blockRouterMetaData as blockRouterMetaDataLocalStorageSavedInput } from './SavedInput/router-data';
+import { blockRouterMetaData as blockRouterMetaDataTryCatchAndFinally } from './TryCatchAndFinally/router-data';
+import { blockRouterMetaData as blockRouterMetaDataTryCatchAndFinallyExercise } from './TryCatchAndFinallyExercise/router-data';
+import { blockRouterMetaData as blockRouterMetaDataJSPrototypes } from './Exercise-js-prototypes/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -12,5 +17,10 @@ export const blockRouterMetaData = [
   blockRouterMetaDataJsFunction1,
   blockRouterMetaDataHitTheMole,
   blockRouterMetaDataMemoGame,
+  // blockRouterMetaDataJSLocalStorage,
+  blockRouterMetaDataLocalStorageSavedInput,
+  blockRouterMetaDataTryCatchAndFinally,
+  blockRouterMetaDataTryCatchAndFinallyExercise,
+  blockRouterMetaDataJSPrototypes,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

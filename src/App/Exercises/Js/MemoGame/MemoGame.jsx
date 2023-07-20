@@ -174,4 +174,14 @@ const Timer = ({ time }) => {
   //       return newMole;
   //     })
   //   );
-   
+  // setMemoArray(Array(memoCount).fill({ if (
+  //   !memoArray[memoCount].isVisible
+  // )return 
+  //   isGuessed: false,
+  //   isVisible: false,
+  //   value: 'A',
+  // }).map((memoItem, index) => {
+  //   const memoItemCopy = { ...memoItem };
+  //   memoItemCopy.value = randomLettersList[index];
+  //   return memoItemCopy;
+  // }))
