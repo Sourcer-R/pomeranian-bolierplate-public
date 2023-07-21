@@ -10,6 +10,7 @@ import { blockRouterMetaData as blockRouterMetaDataLocalStorageSavedInput } from
 import { blockRouterMetaData as blockRouterMetaDataTryCatchAndFinally } from './TryCatchAndFinally/router-data';
 import { blockRouterMetaData as blockRouterMetaDataTryCatchAndFinallyExercise } from './TryCatchAndFinallyExercise/router-data';
 import { blockRouterMetaData as blockRouterMetaDataJSPrototypes } from './Exercise-js-prototypes/router-data';
+import { blockRouterMetaData as blockRouterMetaDataExerciseJsThis } from './ExerciseJsThis/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -22,5 +23,6 @@ export const blockRouterMetaData = [
   blockRouterMetaDataTryCatchAndFinally,
   blockRouterMetaDataTryCatchAndFinallyExercise,
   blockRouterMetaDataJSPrototypes,
+  blockRouterMetaDataExerciseJsThis ,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
