@@ -1,5 +1,8 @@
 import './styles.css';
+import {ExerciseFetchData} from './PromisesApi/index'
 
-export const FetchData = () => {
-  return <div>Change me X</div>;
+export function FetchData () {
+  return <div>
+    <ExerciseFetchData/>
+  </div>;
 };
