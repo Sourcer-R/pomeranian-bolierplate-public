@@ -14,6 +14,7 @@ import { blockRouterMetaData as blockRouterMetaDataExerciseJsThis } from './Exer
 import { blockRouterMetaData as blockRouterMetaDataFetchData } from './FetchData/router-data';
 import { blockRouterMetaData as blockRouterMetaDataPromiseMethodsTraining } from './PromiseMethodsTraining/router-data'; 
 
+
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
   blockRouterMetaDataJsVariables2,
@@ -28,5 +29,6 @@ export const blockRouterMetaData = [
   blockRouterMetaDataExerciseJsThis,
   blockRouterMetaDataFetchData,
   blockRouterMetaDataPromiseMethodsTraining,
+  
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
