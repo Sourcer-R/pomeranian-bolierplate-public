@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './styles.css';
 import { ToDoItem } from './ToDoItem/ToDoItem';
 
-const BASE_API_URL = 'http://localhost:3333/api';
+export const BASE_API_URL = 'http://localhost:3333/api';
 export const LocalDevAndFetch = () => {
   const [toDoList, setToDoList] = useState([]);
   const [getCounter, setCounter] = useState(0);
@@ -49,7 +49,7 @@ export const LocalDevAndFetch = () => {
         {toDoList.length > 0 &&
           toDoList.map((todo) => {
             return (
-              <ToDoItem todo={todo} key={todo.id} />
+              <ToDoItem todo={todo} key={todo.id} handleFetchToDoData={handleFetchToDoData}/>
               
             )
             
