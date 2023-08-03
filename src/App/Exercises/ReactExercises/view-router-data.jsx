@@ -5,6 +5,7 @@ import { Block09MetaData } from './Block09/router-data';
 //import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 import { ReactRouterEventsMetaData } from './ReactRouterEvents/router-data';
 import { blockRouterMetaData as blockRouterMetaDataLocalDevAndFetch } from './LocalDevAndFetch/router-data';
+import { blockRouterMetaData as blockRouterMetaDataToDoList } from './ToDoList/router-data';
 
 export const blockRouterMetaData = [
   ReactRouterEventsMetaData,
@@ -12,5 +13,6 @@ export const blockRouterMetaData = [
   Block09MetaData,
   SelectorsAndCascadeMetaData,
   blockRouterMetaDataLocalDevAndFetch,
+  blockRouterMetaDataToDoList,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
