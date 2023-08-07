@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './styles.css';
+import { ToDoForm } from './ToDoForm/ToDoForm';
 import { ToDoItem } from './ToDoItem/ToDoItem';
 
 export const BASE_API_URL = 'http://localhost:3333/api';
@@ -8,6 +9,7 @@ export const LocalDevAndFetch = () => {
   const [toDoList, setToDoList] = useState([]);
   const [getCounter, setCounter] = useState(0);
   const [error, setError] = useState('');
+  const [isAddingMode, setAddingMode]=useState(false)
   const [getNewTo, setNewToDo] = useState('');
 
   const handleFetchToDoData = async () => {
@@ -45,6 +47,11 @@ export const LocalDevAndFetch = () => {
       <h1 className="todo-container__title">To Do List</h1>
 
       {error && <p>{error}</p>}
+      {isAddingMode && <ToDoForm setAddingMode={setAddingMode}
+      handleFetchToDoData={handleFetchToDoData}/> }
+
+      {!isAddingMode &&(
+        <>
       <div className="todo-container__list">
         {toDoList.length > 0 &&
           toDoList.map((todo) => {
@@ -55,6 +62,7 @@ export const LocalDevAndFetch = () => {
             
           })}
       </div>
+      <button className='dark-blue-button' onClick={() => {setAddingMode(true)}}>ADD</button> </> )}
     </div>
   );
 };
