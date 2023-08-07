@@ -1,11 +1,13 @@
 import './ToDoItem.css';
 import { formatDate } from '../../../../helpers/formatDate';
 import { BinIcon } from '../BinIcon/BinIcon';
+import { EditIcon } from '../EditIcon/EditIcon';
+import { DoneIcon } from '../DoneIcon/DoneIcon'
 import axios from 'axios';
 import { BASE_API_URL } from '..';
 import { useState } from 'react';
 
-export function ToDoItem({ todo, handleFetchToDoData }) {
+export function ToDoItem({ todo, handleFetchToDoData, setIdForEdit, setIsFormVisible }) {
   const { title, author, createdAt, note, isDone, doneDate, id } = todo;
   const [isRemoveError, setRemoveError] = useState(false);
   const itemClasses = `todo-item ${isDone ? 'todo-item--darker' : ''}`;
@@ -15,13 +17,13 @@ export function ToDoItem({ todo, handleFetchToDoData }) {
       .delete(BASE_API_URL + '/todo/' + id)
       .then((response) => {
         console.log('Deleted id is', response);
-        handleFetchToDoData()
+        handleFetchToDoData();
       })
       .catch(() => {
-        
         setRemoveError(true);
       });
   }
+ 
   return (
     //key={todo.id}
     <div className={itemClasses}>
@@ -38,18 +40,37 @@ export function ToDoItem({ todo, handleFetchToDoData }) {
       <div className="todo-item__aside">
         <button
           onClick={() => handleRemoveClick()}
-          className="todo-item__aside__button todo-item__aside__icon"
+          className="todo-item__aside__button "
         >
           <BinIcon isError={isRemoveError} />
         </button>
+        <button className="todo-item__aside__button "
+          onClick={() => {
+            setIdForEdit(id);
+            setIsFormVisible(true)
+          }}
+         
+        >
+          <EditIcon />
+          </button>
+          <button
+        // //   onClick={() => {
+        // //     setIdForEdit(id);
+        // //     setIsFormVisible(true)
+        //   }}
+          className="todo-item__aside__button "
+        >
+          <DoneIcon />
+        </button>
+        
         {isRemoveError && (
           <div className="todo-item__aside__error-message">Couldn`t delete</div>
         )}
         {isDone && (
           <>
             <div className="todo-item__aside__icon todo-item__aside__icon--checkmark ">
-              {' '}
-              &#10003;
+              {/* {' '}
+              &#10003; */}
             </div>
             <div> {formatDate(doneDate)}</div>
           </>

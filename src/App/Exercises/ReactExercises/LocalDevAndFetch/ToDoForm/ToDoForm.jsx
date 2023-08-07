@@ -2,10 +2,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import { BASE_API_URL } from '..';
 import './ToDoForm.css';
-export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [note, setNote] = useState('');
+export function ToDoForm({ setIsFormVisible,handleFetchToDoData, data, setIdForEdit }) {
+  
+  const isEditMode=Boolean(data);
+  const [title, setTitle] = useState(isEditMode ? data.title :'');
+  const [author, setAuthor] = useState(isEditMode ? data.author:'');
+  const [note, setNote] = useState(isEditMode ? data.note :'');
   const [isError, setError] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const [isInProgress, setInProgress] = useState(false);
@@ -14,6 +16,25 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
     try {
       setInProgress(true);
       await axios.post(BASE_API_URL + '/todo', {
+        title,
+        author,
+        note,
+      });
+      setTitle ('')
+setAuthor ('')
+setNote('')
+      setSuccess(true);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setInProgress(false);
+    }
+  }
+
+  async function handleEditToDo() {
+    try {
+      setInProgress(true);
+      await axios.put(BASE_API_URL + '/todo/' + data.id, {
         title,
         author,
         note,
@@ -41,7 +62,8 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
           }}
         />
       </div>
-      <div className="todo-form__field">
+     
+      {!isEditMode &&  <div className="todo-form__field">
         <label className="todo-form__field__label" htmlFor="">
           Author
         </label>
@@ -52,7 +74,7 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
             setAuthor(event.target.value);
           }}
         />
-      </div>
+      </div>}
       <div className="todo-form__field">
         <label
           className="todo-form__field__label"
@@ -67,7 +89,7 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
       </div>
 
       {isInProgress && <p>Saving is in progress</p>}
-      {isSuccess && <p className="todo-form__success-message">Added!</p>}
+      {isSuccess && <p className="todo-form__success-message">{isEditMode ? <>"{title} added"</> : <>Added!</>}</p>}
       {isError && (
         <p className="todo-form__error-message">
           There is an error, please try again!
@@ -77,8 +99,9 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
         <button
           className="dark-blue-button"
           onClick={() => {
-            handleFetchToDoData()
-            setAddingMode(false);
+            handleFetchToDoData(isEditMode ? data.id : undefined);
+            setIsFormVisible(false);
+            setIdForEdit(null);
           }}
         >
           CANCEL
@@ -86,12 +109,16 @@ export function ToDoForm({ setAddingMode,handleFetchToDoData }) {
         <button
           className="dark-blue-button"
           onClick={() => {
-            
-            handleCreateToDo();
-          }}
+            if (isEditMode) {
+handleEditToDo()
+            } else {
+                 handleCreateToDo();
+          } 
+            }
+          }
           disabled={!isReadyToSend || isInProgress}
         >
-          SAVE
+          {isEditMode ? "SAVE" : "ADD"}
         </button>
       </div>
     </div>
