@@ -1,13 +1,19 @@
 import './ToDoItem.css';
 import { formatDate } from '../../../../helpers/formatDate';
-import { BinIcon } from '../BinIcon/BinIcon';
-import { EditIcon } from '../EditIcon/EditIcon';
-import { DoneIcon } from '../DoneIcon/DoneIcon'
+
 import axios from 'axios';
 import { BASE_API_URL } from '..';
 import { useState } from 'react';
+import { BinIcon } from '../../../../Images/Icons/BinIcon';
+import { EditIcon } from '../../../../Images/Icons/EditIcon';
+import { CheckMarkIcon } from '../../../../Images/Icons/CheckMarkIcon';
 
-export function ToDoItem({ todo, handleFetchToDoData, setIdForEdit, setIsFormVisible }) {
+export function ToDoItem({
+  todo,
+  handleFetchToDoData,
+  setIdForEdit,
+  setIsFormVisible,
+}) {
   const { title, author, createdAt, note, isDone, doneDate, id } = todo;
   const [isRemoveError, setRemoveError] = useState(false);
   const itemClasses = `todo-item ${isDone ? 'todo-item--darker' : ''}`;
@@ -23,7 +29,7 @@ export function ToDoItem({ todo, handleFetchToDoData, setIdForEdit, setIsFormVis
         setRemoveError(true);
       });
   }
- 
+
   return (
     //key={todo.id}
     <div className={itemClasses}>
@@ -44,25 +50,25 @@ export function ToDoItem({ todo, handleFetchToDoData, setIdForEdit, setIsFormVis
         >
           <BinIcon isError={isRemoveError} />
         </button>
-        <button className="todo-item__aside__button "
+        <button
+          className="todo-item__aside__button "
           onClick={() => {
             setIdForEdit(id);
-            setIsFormVisible(true)
+            setIsFormVisible(true);
           }}
-         
         >
           <EditIcon />
-          </button>
-          <button
-        // //   onClick={() => {
-        // //     setIdForEdit(id);
-        // //     setIsFormVisible(true)
-        //   }}
+        </button>
+        <button
+          // //   onClick={() => {
+          // //     setIdForEdit(id);
+          // //     setIsFormVisible(true)
+          //   }}
           className="todo-item__aside__button "
         >
-          <DoneIcon />
+          <CheckMarkIcon />
         </button>
-        
+
         {isRemoveError && (
           <div className="todo-item__aside__error-message">Couldn`t delete</div>
         )}
