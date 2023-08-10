@@ -10,6 +10,11 @@ aside {
 aside ul {
   /* Nadpisanie domyślnych styli przeglądarki */
   padding-inline-start: 1rem;
+  list-style: none;
+  padding: inherit;
+
+  height: 27px;
+  line-height: 2.5rem;
 }
 
 aside li {
@@ -35,4 +40,8 @@ aside a.active {
 aside li a:hover {
   background-color: var(--color-primary-blue);
   color: var(--color-white);
+}
+
+.menu-icon {
+  margin: 2px;
 }

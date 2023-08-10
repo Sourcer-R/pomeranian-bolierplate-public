@@ -1,0 +1,91 @@
+.memoOptionsButtons {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-rows: auto 3fr;
+  grid-template-columns: 2fr 4fr;
+}
+
+.memoButtonsRows {
+  grid-area: 1 / 1 / 5/ 5;
+}
+
+.memoButtonsRows div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.memoButtonsRows h4,
+.memoButtonsRows button {
+  width: 15rem;
+}
+
+.memoButtonsRows button {
+  padding: 1.25rem 2.2rem 1.25rem 2.2rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  border-color: #23213d;
+  border: 1px;
+  gap: 1rem;
+  background: #23213d;
+
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+
+.memoButtonsRows button:hover,
+.memoButtonsRows button.activeButton {
+  background: #fe3756;
+  border-color: #fe3756;
+}
+
+.memoGame .board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 5px;
+  max-width: 800px;
+  height: 300px;
+}
+.memoGame .board .cell {
+  display: flex;
+  background-color: #ebebeb;
+
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.memoCells {
+  width: 200%;
+  height: 200%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+.cell {
+  cursor: pointer;
+}
+
+.boardButton {
+  background-color: #ebebeb;
+  width: 163px;
+  height: 56px;
+  padding: 20px 36px 20px 36px;
+  border-radius: 8px;
+  border: 1px;
+  gap: 16px;
+}
