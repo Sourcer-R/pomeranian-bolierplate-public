@@ -1,0 +1,11 @@
+.container--react-use-ref :focus {
+  background-color: red;
+}
+.container--react-use-ref {
+  display: flex;
+  flex-direction: column;
+}
+.container--react-use-ref input {
+  margin-left: 10px;
+  display: flex;
+}
