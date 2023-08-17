@@ -7,7 +7,7 @@ export const Blog = () => {
     <div className="blog">
       <div className="blog-post">
         <span className="blog-post-date"> 30-11-2022 </span>
-        <Title text="Tytul A" />
+        <Title text="Why are we so nostalgic for the 1990s?" />
         <p>
           Pop culture used to define a generation, but it seems the cultural,
           music and fashion trends of the 1990s have been recycled, and what
