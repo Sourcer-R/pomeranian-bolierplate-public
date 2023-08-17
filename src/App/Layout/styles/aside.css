@@ -10,21 +10,30 @@ aside {
 aside ul {
   /* Nadpisanie domyślnych styli przeglądarki */
   padding-inline-start: 1rem;
-  list-style: none;
-  padding: inherit;
 
-  height: 27px;
-  line-height: 2.5rem;
+  list-style: none;
+  padding-left: 0;
 }
 
 aside li {
   line-height: 2rem;
 }
 
+.menu-icon {
+  margin-right: 10px;
+  width: 23px;
+}
+
+.menu-icon path {
+  stroke: red;
+}
+
 .aside-row {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
+  color: black;
 }
 
 aside li a {
@@ -32,16 +41,11 @@ aside li a {
   padding: 0.5rem;
 }
 
+aside li :hover {
+  color: #fe3756;
+}
+
 aside a.active {
-  background-color: var(--color-primary-blue);
-  color: var(--color-white);
-}
-
-aside li a:hover {
-  background-color: var(--color-primary-blue);
-  color: var(--color-white);
-}
-
-.menu-icon {
-  margin: 2px;
+  background-color: lightsalmon;
+  color: var(--color-black);
 }
