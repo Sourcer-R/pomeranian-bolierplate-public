@@ -68,7 +68,7 @@ export const Dashboard = () => {
           );
         })}
       </div>
-      {/* <aside className="about-me"> */}
+      <aside className="about-me">
         <div className="profile">
           <img
             className="profile-picture"
@@ -88,7 +88,7 @@ export const Dashboard = () => {
             <a href="tel:518130491">+48 518 130 491</a>
           </p>
         </div>
-      {/* </aside> */}
+      </aside>
     </div>
   );
 };
