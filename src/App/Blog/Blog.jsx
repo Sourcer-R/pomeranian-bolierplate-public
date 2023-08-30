@@ -27,7 +27,7 @@ export const Blog = () => {
       <div>
         <div className="blog-post-2">
           <span className="blog-post-date2"> 30-11-2022 </span>
-          <Title text="Tytul B" />
+          <Title text="18 Record-Breaking, Controversial, and Weird Facts" />
           <p>
             The death of Queen Elizabeth II on September 8 at the age of 96
             represents a monumental shift for the British monarchy and the
