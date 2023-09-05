@@ -10,6 +10,7 @@ import { blockRouterMetaData as blockRouterMetaDataReactUseRef } from './ReactUs
 import { blockRouterMetaData as blockRouterMetaDataForms } from './Forms/router-data';
 import { blockRouterMetaData as blockRouterMetaDataMoonApp } from './MoonApp/router-data';
 import { blockRouterMetaData as blockRouterMetaDataReduxTest } from './ReduxTest/router-data';
+import { blockRouterMetaData as blockRouterMetaDataReduxCounter } from './ReduxCounter/router-data';
 
 export const blockRouterMetaData = [
   ReactRouterEventsMetaData,
@@ -22,5 +23,6 @@ export const blockRouterMetaData = [
   blockRouterMetaDataForms,
   blockRouterMetaDataMoonApp,
   blockRouterMetaDataReduxTest,
+  blockRouterMetaDataReduxCounter,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
